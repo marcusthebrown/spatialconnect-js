@@ -366,3 +366,14 @@ export const sendMessage = (typeId, payload) => window.WebViewJavascriptBridge.s
   type: typeId,
   payload,
 });
+
+// generic way to send a message to the SpatialConnect bridge and subscribe for the response
+export const sendMessage$ = (typeId, payload) => {
+  const responseId = uniqueType(typeId);
+  window.WebViewJavascriptBridge.send({
+    type: typeId,
+    responseId,
+    payload,
+  });
+  return fromEvent$(responseId).takeUntil(fromEvent$(responseId + COMPLETED));
+};

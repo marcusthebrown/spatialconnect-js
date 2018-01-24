@@ -12,3 +12,6 @@ native/index.js
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 .idea
+
+# ignore jest coverage dir
+coverage/

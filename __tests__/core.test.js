@@ -20,6 +20,7 @@ import {
   spatialQuery$,
   backendUri$,
   mqttConnected$,
+  sendMessage$,
  } from '../src/core';
 import { filter } from '../src/filter';
 import { Commands } from '../src/commands';
@@ -209,5 +210,14 @@ describe('core methods', () => {
         responseId: expect.any(String),
       },
     );
+  });
+
+  it('allows subscriptions to generic messages through sendMessage$', () => {
+    sendMessage$('TEST').subscribe(() => {
+      expect(NativeModules.RNSpatialConnect.handler).toHaveBeenCalledWith(
+      { type: 'TEST',
+        responseId: expect.any(String),
+      },
+    )});
   });
 });

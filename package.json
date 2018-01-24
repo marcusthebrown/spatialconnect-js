@@ -1,7 +1,7 @@
 {
   "name": "spatialconnect",
-  "version": "0.12.0",
-  "description": "Javascript Library for Spatial Connect",
+  "version": "0.12.1",
+  "description": "Javascript Library for SpatialConnect",
   "main": "dist/spatialconnect.js",
   "scripts": {
     "prepublish": "npm run build",
@@ -14,7 +14,9 @@
     "docs": "documentation build src/index.js -f md -o API.md"
   },
   "jest": {
-    "setupFiles": ["./__tests__/setup.js"]
+    "setupFiles": [
+      "./__tests__/setup.js"
+    ]
   },
   "repository": {
     "type": "git",
